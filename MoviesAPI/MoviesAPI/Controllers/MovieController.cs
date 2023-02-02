@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using MoviesAPI.Models;
   
 namespace MoviesAPI.Controllers
@@ -9,10 +10,12 @@ namespace MoviesAPI.Controllers
     {
 
         private static List<Movie> movies = new List<Movie>();
+        private static int id = 0;
 
         [HttpPost]
         public void AddMovie([FromBody] Movie movie)
         {
+            movie.Id = id++;
             movies.Add(movie);
             Console.WriteLine(movie.Title);
             Console.WriteLine(movie.Gender);
@@ -23,6 +26,12 @@ namespace MoviesAPI.Controllers
         public IEnumerable<Movie> GetMovie()
         {
             return movies;
+        }
+
+        [HttpGet("{id")]
+        public Movie? GetMovieById(int id) 
+        {
+            return movies.FirstOrDefault(movie => movie.Id == id);
         }
     }
 }
