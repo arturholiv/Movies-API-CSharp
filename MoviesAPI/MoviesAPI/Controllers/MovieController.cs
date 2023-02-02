@@ -18,5 +18,11 @@ namespace MoviesAPI.Controllers
             Console.WriteLine(movie.Gender);
 
         }
+
+        [HttpGet]
+        public List<Movie> GetMovie()
+        {
+            return movies;
+        }
     }
 }
