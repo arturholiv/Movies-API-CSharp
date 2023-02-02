@@ -20,7 +20,7 @@ namespace MoviesAPI.Controllers
         }
 
         [HttpGet]
-        public List<Movie> GetMovie()
+        public IEnumerable<Movie> GetMovie()
         {
             return movies;
         }
