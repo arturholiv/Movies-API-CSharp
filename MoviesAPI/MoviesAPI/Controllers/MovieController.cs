@@ -17,9 +17,6 @@ namespace MoviesAPI.Controllers
         {
             movie.Id = id++;
             movies.Add(movie);
-            Console.WriteLine(movie.Title);
-            Console.WriteLine(movie.Gender);
-
         }
 
         [HttpGet]
