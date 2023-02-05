@@ -7,22 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="NovaPasta1\**" />
-    <Compile Remove="NovaPasta3\**" />
-    <Content Remove="NovaPasta1\**" />
-    <Content Remove="NovaPasta3\**" />
-    <EmbeddedResource Remove="NovaPasta1\**" />
-    <EmbeddedResource Remove="NovaPasta3\**" />
-    <None Remove="NovaPasta1\**" />
-    <None Remove="NovaPasta3\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Controllers\WeatherForecastController.cs" />
     <Compile Remove="WeatherForecast.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -33,7 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="NovaPasta1\" />
     <Folder Include="NovaPasta2\" />
+    <Folder Include="NovaPasta\" />
   </ItemGroup>
 
 </Project>

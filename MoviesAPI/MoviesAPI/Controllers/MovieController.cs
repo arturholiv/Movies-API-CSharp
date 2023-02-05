@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using MoviesAPI.Data;
+using MoviesAPI.Data.Dtos;
 using MoviesAPI.Models;
-  
+
 namespace MoviesAPI.Controllers
 {
     [ApiController]
@@ -17,8 +18,9 @@ namespace MoviesAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddMovie([FromBody] Movie movie)
+        public IActionResult AddMovie([FromBody] CreateMovieDto movieDto)
         {
+
             _context.Movies.Add(movie);
             _context.SaveChanges();
             return CreatedAtAction(nameof(GetMovieById), new {id = movie.Id}, movie); 
