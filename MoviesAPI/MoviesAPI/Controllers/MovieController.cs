@@ -17,7 +17,7 @@ namespace MoviesAPI.Controllers
         {
             movie.Id = id++;
             movies.Add(movie);
-            return CreatedAtAction(nameof(GetMovieById), new {id = movie.Id}, movie);
+            return CreatedAtAction(nameof(GetMovieById), new {id = movie.Id}, movie); 
         }
 
         [HttpGet]
