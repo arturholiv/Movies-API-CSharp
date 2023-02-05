@@ -53,7 +53,7 @@ namespace MoviesAPI.Controllers
             return NoContent();
         }
 
-        [HttpPatch]
+        [HttpPatch("{id}")]
         public IActionResult PatchUpdateMovie(int id, JsonPatchDocument<UpdateMovieDto> patch)
         {
             var movie = _context.Movies.FirstOrDefault(movie => movie.Id == id);
@@ -69,6 +69,16 @@ namespace MoviesAPI.Controllers
             }
 
             _mapper.Map(movieToUpdate, movie);
+            _context.SaveChanges();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteMovie(int id)
+        {
+            var movie = _context.Movies.FirstOrDefault(movie => movie.Id == id);
+            if (movie == null) return NotFound();
+            _context.Remove(movie);
             _context.SaveChanges();
             return NoContent();
         }
