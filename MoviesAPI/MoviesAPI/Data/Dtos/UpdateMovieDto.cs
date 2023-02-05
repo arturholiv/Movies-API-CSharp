@@ -2,9 +2,8 @@
 
 namespace MoviesAPI.Data.Dtos
 {
-    public class CreateMovieDto
+    public class UpdateMovieDto
     {
-
         [Required(ErrorMessage = "The Movie title is required")]
         [StringLength(120)]
         public string Title { get; set; }

@@ -41,5 +41,14 @@ namespace MoviesAPI.Controllers
             if (movie == null) return NotFound();
             return Ok(movie);
         }
+
+        [HttpPut]
+        public IActionResult UpdateMovie(int id, [FromBody] UpdateMovieDto movieDto) 
+        {
+            var movie = _context.Movies.FirstOrDefault(movie =>movie.Id == id);
+            if (movie == null) return NotFound();
+            _mapper.Map(movieDto, movie);
+            return NoContent();
+        }
     }
 }
